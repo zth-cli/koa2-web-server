@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-12 15:54:00
+ * @LastEditTime: 2021-04-12 19:14:44
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\app.js
@@ -12,6 +12,7 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
+const koaBody = require('koa-body') // 解析文件上传
 const logger = require('koa-logger')
 const cors = require('koa2-cors')
 const routes = require('./routes/index')
@@ -30,8 +31,13 @@ app.use(serviceError())
 app.use(cors())
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text'],
-  multipart: true // 是否支持 multipart-formdate 的表单
+  enableTypes:['json', 'form', 'text']
+}))
+app.use(koaBody({
+  multipart: true,
+  formidable: {
+      maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
+  }
 }))
 app.use(json())
 app.use(logger())
