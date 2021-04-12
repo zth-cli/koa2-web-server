@@ -1,3 +1,11 @@
+/*
+ * @Author: 阮志雄
+ * @Date: 2021-04-10 17:46:55
+ * @LastEditTime: 2021-04-12 15:54:00
+ * @LastEditors: 阮志雄
+ * @Description: In User Settings Edit
+ * @FilePath: \koa2-blog\app.js
+ */
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -22,7 +30,8 @@ app.use(serviceError())
 app.use(cors())
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes:['json', 'form', 'text'],
+  multipart: true // 是否支持 multipart-formdate 的表单
 }))
 app.use(json())
 app.use(logger())
