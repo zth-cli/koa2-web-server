@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-12 19:14:44
+ * @LastEditTime: 2021-04-13 17:13:39
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\app.js
@@ -30,15 +30,16 @@ onerror(app)
 app.use(serviceError())
 app.use(cors())
 // middlewares
-app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
-}))
 app.use(koaBody({
   multipart: true,
   formidable: {
       maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
   }
 }))
+app.use(bodyparser({
+  enableTypes:['json', 'form', 'text']
+}))
+
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public')) // 内置中间件，处理静态资源
