@@ -1,16 +1,20 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-12 17:16:08
- * @LastEditTime: 2021-04-12 17:24:33
+ * @LastEditTime: 2021-04-24 22:19:47
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\service\article.js
  */
-const { userModel } = require('../model/index');
+const { articleModel } = require('../model/index');
 class ArticleService {
-   async Index (arr) {
-    let data = arr
-    return data
+   async Index(article) {
+      let data, tags = article[5]
+      await articleModel.insertPost(article).then(result => {
+         data = result
+         articleModel.updateTags(tags) // 更新tags
+      })
+      return data
    }
 }
 module.exports = new ArticleService();

@@ -1,14 +1,16 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-13 17:13:39
+ * @LastEditTime: 2021-04-24 16:20:29
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\app.js
  */
 const Koa = require('koa')
 const app = new Koa()
+const path = require('path');
 const views = require('koa-views')
+const koaNunjucks = require('koa-nunjucks-2'); // 引入 koa-nunjucks-2
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
@@ -39,14 +41,23 @@ app.use(koaBody({
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
-
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public')) // 内置中间件，处理静态资源
 
-app.use(views(__dirname + '/views', {
-  extension: 'ejs'
-}))
+// 脚手架默认 ejs 模板
+// app.use(views(__dirname + '/views', {
+//   extension: 'ejs'
+// }))
+
+// 使用 koa-nunjucks-2 实例获得中间件
+app.use(koaNunjucks({
+  ext: 'html', // 使用HTML后缀的模板
+  path: path.join(__dirname, 'views'), // 模板所在路径
+  nunjucksConfig: { // nunjucks的配置
+      trimBlocks: true
+  }
+}));
 
 // logger
 app.use(async (ctx, next) => {
