@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 20:04:35
- * @LastEditTime: 2021-04-24 20:14:40
+ * @LastEditTime: 2021-04-25 00:03:56
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\controller\client\home.js
@@ -26,21 +26,24 @@ class IndexController {
    }
    async Article(ctx) { // 文章详情页
       const id = ctx.params.id
-      let data = await IndexService.findDataById(id)
-      console.log(data);
+      let data = await IndexService.findArticleById(id)
       await ctx.render('home/article', {
          list:data[0]
       })
    }
-   async Categories(ctx) {
+   async Tags(ctx) { // 查找此分类所有文章
+      const tag = ctx.params.tag
+      let data = await IndexService.findArticleByTag(tag)
+      console.log(data);
       await ctx.render('home/tags', {
-         typeStr: 'Javascript',
-         list: [{ time: '11:23:12', title: 'ES6新特性', id: '12jwq1dsm1' }]
+         typeStr:tag,
+         list: data
       })
    }
    async Classify(ctx) {
+      let data = await IndexService.findAllTags()
       await ctx.render('home/classify', {
-         list: [{ type: 'Javascript', num: 12 }, { type: 'Typescript', num: 6 }]
+         list: data
       })
    }
    async Strings(ctx) {

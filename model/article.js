@@ -44,18 +44,25 @@ let findPageById = function (page) {
 }
 // 新增文章时更新tags
 let updateTags = function (tagStr) {
-    let _sql = `update classify set num = num + 1 where type like '%${tagStr}%';`
+    let _sql = `update classify set num = num + 1 where POSITION( type IN '${tagStr}');`
     return mysql(_sql)
 }
+// 新增tag
 let insetTags = function (tagStr) {
     let _sql = `inset into classify (num, type) values (1, tagStr)`
     return mysql(_sql)
 }
+// 查询tag
 let findAllTags = function (tag='') {
     let _sql = tag ? `select * from classify where type like '%${tag}%';` : `select * from classify;`
     return mysql(_sql)
 }
-
+//  根据tag查文章
+let findDataByTag  = function (tag) {
+    let _sql = `select title,url,id,DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from article where tags like "%${tag}%" and invisible = 1;`
+    return mysql(_sql)
+    // %Y-%m-%d %H:%i:%s
+}
 
 
 // 更新文章评论数
@@ -120,5 +127,6 @@ module.exports = {
     findCommentByPage,
     updateTags,
     insetTags,
-    findAllTags
+    findAllTags,
+    findDataByTag
 }
