@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-12 17:16:08
- * @LastEditTime: 2021-04-25 00:06:37
+ * @LastEditTime: 2021-04-28 11:19:10
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\service\article.js
@@ -13,6 +13,13 @@ class ArticleService {
       await articleModel.insertPost(article).then(result => {
          data = result
          articleModel.updateTags(tags) // 更新tags
+      })
+      return data
+   }
+   async findTags () {
+      let data
+      await articleModel.findAllTags().then(result => {
+         data = result
       })
       return data
    }

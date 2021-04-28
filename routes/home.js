@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-24 23:03:54
+ * @LastEditTime: 2021-04-28 11:01:39
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\routes\home.js
@@ -11,7 +11,7 @@ const IndexController = require('../controller/client/home')
 const auth = require('../middleware/auth')
 const download = require('../utils/download')
 router.get('/',  IndexController.Index)
-router.get('/tag/:tag', IndexController.Tags)
+router.get('/tag/:tag', IndexController.ArticleByTags)
 router.get('/classify', IndexController.Classify)
 router.get('/article/:id', IndexController.Article)
 

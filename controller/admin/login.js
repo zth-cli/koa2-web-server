@@ -1,15 +1,15 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 23:09:21
- * @LastEditTime: 2021-04-27 01:01:11
+ * @LastEditTime: 2021-04-28 11:28:16
  * @LastEditors: 阮志雄
  * @Description: 用户登录注册相关逻辑
- * @FilePath: \koa2-blog\controller\login.js
+ * @FilePath: \koa2-blog\controller\admin\login.js
  */
 const jwt = require('jsonwebtoken');
-const fileUpLoad = require('../utils/upload')
-const config = require('../config/default')
-const LoginService = require('../service/login');
+const fileUpLoad = require('../../utils/upload')
+const config = require('../../config/default')
+const LoginService = require('../../service/login');
 class LoginController {
     static async signIn(ctx) {
         console.log(ctx.request.body);

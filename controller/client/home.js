@@ -31,7 +31,7 @@ class IndexController {
          list:data[0]
       })
    }
-   async Tags(ctx) { // 查找此分类所有文章
+   async ArticleByTags(ctx) { // 查找此分类所有文章
       const tag = ctx.params.tag
       let data = await IndexService.findArticleByTag(tag)
       console.log(data);
