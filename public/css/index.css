@@ -59,7 +59,7 @@ a {
 }
 .navbar {
     width: 100%;
-    background: #FAFAFA;
+    backdrop-filter: saturate(180%) blur(20px);
     display: flex;
     justify-content: space-between;
     height: 6rem;
@@ -67,6 +67,7 @@ a {
     box-sizing: border-box;
     padding: 0 1.2rem;
     border-bottom: 1px solid transparent;
+    background:rgba(255, 255, 255, 0.8);
 }
 
 .nav_brand,

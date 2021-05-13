@@ -1,15 +1,15 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 23:15:51
- * @LastEditTime: 2021-04-28 11:26:50
- * @LastEditors: 阮志雄
+ * @LastEditTime: 2021-05-13 11:01:14
+ * @LastEditors: rzx007
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\routes\login.js
  */
 const router = require('koa-router')()
 const LoginController = require('../controller/admin/login')
 router.get('/login', async (ctx) => {
-    await ctx.render('home/tags', {title: '登录' })
+    await ctx.render('admin/login', { title: '注册' })
 })
 router.post('/signin', LoginController.signIn) // 登录
 router.post('/signup', LoginController.signUp) // 注册

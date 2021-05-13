@@ -1,8 +1,8 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 20:43:40
- * @LastEditTime: 2021-04-24 18:32:43
- * @LastEditors: 阮志雄
+ * @LastEditTime: 2021-05-13 10:52:24
+ * @LastEditors: rzx007
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\mysql\db.js
  */
@@ -47,7 +47,7 @@ let user =
         phone varchar(11) DEFAULT NULL,
         create_time datetime DEFAULT NULL,
         update_time datetime DEFAULT NULL,
-        avatar_url varchar(255) DEFAULT NULL,
+        avator_url varchar(255) DEFAULT NULL,
         PRIMARY KEY (id)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;`
 let comment =
