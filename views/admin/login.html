@@ -1,3 +1,11 @@
+<!--
+ * @Author: rzx007
+ * @Date: 2021-04-13 16:57:45
+ * @LastEditors: rzx007
+ * @LastEditTime: 2021-05-14 11:15:14
+ * @FilePath: \koa2-blog\views\admin\login.html
+ * @Description: Do not edit
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,11 +30,17 @@
 
       <p>
         <label>上传:</label>
-        <input type="file" id="file"  />
+        <input type="file" id="file" multiple />
       </p>
       <p>
         <button id="btn">登录</button>
       </p>
+      <form method="POST" action="/signup" enctype="multipart/form-data">
+        title: <input name="title" />
+        file1: <input name="file1" type="file" />
+        file2: <input name="file2" type="file" />
+        <button type="submit">Upload</button>
+      </form>
     </div>
   </body>
   <script>
