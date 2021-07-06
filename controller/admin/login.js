@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 23:09:21
- * @LastEditTime: 2021-05-14 11:42:34
+ * @LastEditTime: 2021-06-08 16:45:36
  * @LastEditors: rzx007
  * @Description: 用户登录注册相关逻辑
  * @FilePath: \koa2-blog\controller\admin\login.js
@@ -20,6 +20,7 @@ class LoginController {
       pass: ctx.request.body.password,
     };
     let data = await LoginService.findUserBypass(user);
+    console.log(data);
 
     if (data.length > 0) {
       const token = jwt.sign({ name: data[0].name, id: data[0].id }, config.jwtsign, {

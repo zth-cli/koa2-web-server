@@ -1,8 +1,8 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-24 16:20:29
- * @LastEditors: 阮志雄
+ * @LastEditTime: 2021-06-08 16:26:19
+ * @LastEditors: rzx007
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\app.js
  */
@@ -75,3 +75,6 @@ app.on('error', (err, ctx) => {
 });
 
 module.exports = app
+
+
+// https://www.jianshu.com/p/f69852835699#fnref2 常用中间件

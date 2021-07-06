@@ -1,16 +1,18 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 20:04:35
- * @LastEditTime: 2021-04-25 00:03:56
- * @LastEditors: 阮志雄
+ * @LastEditTime: 2021-06-08 16:11:15
+ * @LastEditors: rzx007
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\controller\client\home.js
  */
 
 const IndexService = require('../../service/index');
 const path = require('path');
+const { log } = require('console');
 class IndexController {
    async Index(ctx) {
+      log(ctx.method)
       // console.log(path.join(__dirname, '..\\public\\file'));
       const pageIndex = ctx.query.page ? ctx.query.page : 1;
       const pageSize = ctx.query.pageSize ? ctx.query.pageSize : 10;
