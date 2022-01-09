@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 17:46:55
- * @LastEditTime: 2021-04-28 11:01:39
+ * @LastEditTime: 2021-12-31 18:51:16
  * @LastEditors: 阮志雄
  * @Description: In User Settings Edit
  * @FilePath: \koa2-blog\routes\home.js
@@ -24,6 +24,7 @@ router.get('/json', auth(), async (ctx, next) => {
 })
 router.get('/download/:name', async (ctx) => {
   const name = ctx.params.name;
+  console.log(name);
   await download(ctx, name)
 })
 module.exports = router

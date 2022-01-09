@@ -1,7 +1,7 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-12 17:07:54
- * @LastEditTime: 2021-04-28 12:08:45
+ * @LastEditTime: 2021-12-31 14:32:25
  * @LastEditors: 阮志雄
  * @Description: 文章相关逻辑
  * @FilePath: \koa2-blog\controller\admin\article.js
@@ -30,7 +30,7 @@ class ArticleController {
     async findAllTags(ctx) {
         let data = await ArticleService.findTags()
         if (data) {
-            ctx.success(ctx,data)
+            ctx.success(ctx, data)
         } else {
             ctx.fail(ctx, data)
         }

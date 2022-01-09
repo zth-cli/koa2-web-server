@@ -1,8 +1,8 @@
 /*
  * @Author: 阮志雄
  * @Date: 2021-04-10 23:09:21
- * @LastEditTime: 2021-06-08 16:45:36
- * @LastEditors: rzx007
+ * @LastEditTime: 2021-12-31 19:18:19
+ * @LastEditors: 阮志雄
  * @Description: 用户登录注册相关逻辑
  * @FilePath: \koa2-blog\controller\admin\login.js
  */
@@ -26,7 +26,7 @@ class LoginController {
       const token = jwt.sign({ name: data[0].name, id: data[0].id }, config.jwtsign, {
         expiresIn: '2h',
       });
-      ctx.cookies.set('token', { token, username: user.name });
+      ctx.cookies.set('token', { token, username: user.name }, { maxAge: 60 * 1000 * 60, });
       ctx.success(ctx, { token });
     } else {
       ctx.fail(ctx, '登录失败,检查用户名与密码是否正确');

@@ -1,12 +1,3 @@
-/*
- * @Author: 阮志雄
- * @Date: 2021-04-10 20:04:35
- * @LastEditTime: 2021-06-08 16:11:15
- * @LastEditors: rzx007
- * @Description: In User Settings Edit
- * @FilePath: \koa2-blog\controller\client\home.js
- */
-
 const IndexService = require('../../service/index');
 const path = require('path');
 const { log } = require('console');
